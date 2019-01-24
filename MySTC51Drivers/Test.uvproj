@@ -82,8 +82,6 @@
             <UserProg2Name></UserProg2Name>
             <UserProg1Dos16Mode>0</UserProg1Dos16Mode>
             <UserProg2Dos16Mode>0</UserProg2Dos16Mode>
-            <nStopA1X>0</nStopA1X>
-            <nStopA2X>0</nStopA2X>
           </AfterMake>
           <SelectedForBatchBuild>0</SelectedForBatchBuild>
           <SVCSIdString></SVCSIdString>
@@ -176,7 +174,7 @@
           </Flash1>
           <bUseTDR>0</bUseTDR>
           <Flash2></Flash2>
-          <Flash3></Flash3>
+          <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
@@ -185,7 +183,7 @@
         </Utilities>
         <Target51>
           <Target51Misc>
-            <MemoryModel>1</MemoryModel>
+            <MemoryModel>2</MemoryModel>
             <RTOS>0</RTOS>
             <RomSize>2</RomSize>
             <DataHold>0</DataHold>
@@ -311,7 +309,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\Listings</IncludePath>
+              <IncludePath>.\Listings;.\Listings\petit_fatfs</IncludePath>
             </VariousControls>
           </C51>
           <Ax51>
@@ -377,16 +375,6 @@
               <FileName>Uart.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Listings\Uart.c</FilePath>
-            </File>
-            <File>
-              <FileName>NEC_IR_decoding.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Listings\NEC_IR_decoding.c</FilePath>
-            </File>
-            <File>
-              <FileName>Digital_Tube.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Listings\Digital_Tube.c</FilePath>
             </File>
           </Files>
         </Group>

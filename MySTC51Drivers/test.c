@@ -1,19 +1,16 @@
 #include "define.h"
 #include "delay.h"
-#include "Digital_Tube.h"
-#include "NEC_IR_decoding.h"
 #include "Uart.h"
+
 /********请先在define.h中调整晶振频率与周期配置**************/
+
 void main()
 {
-    u8 num[4];
-	u8 flag;
-	delay_ms(10);
-	uart_init();
-    IR_init(); 
+    delay_ms(100);
+	uart_init(); //19200
 	while(1)
 	{   
-		flag = NEC_IR_decoding(&num);
-		Digital_display_4hex(&num);
+        printf("Hello World!");
+        delay_ms(1000);
 	}
 }

@@ -13,7 +13,8 @@ void putc(u8 ch);     //输出字符
 
 //由于下方的函数占用1K左右Flash和40BYTEde左右RAM，酌情考虑是否使用，把下面的宏EN_PRINTF置为0则不编译
 #define EN_PRINTF    		1       	//使能
-//#define SIZE_OF_PRINTG	64        //输出缓冲区				//弃用
-void my_printf(u8* str, ...);			//格式化输出字符串----用法和printf相同 
+
+//#define SIZE_OF_PRINTG	64          //输出缓冲区,弃用
+void my_printf(const u8* str, ...);	    //格式化输出字符串----用法和标准C语言的printf函数相同 
 
 #endif

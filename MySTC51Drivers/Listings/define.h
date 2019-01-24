@@ -12,12 +12,11 @@ typedef	unsigned char uchar;
 typedef	unsigned char u8;
 typedef	unsigned char uint8;
 typedef	unsigned char int8u;
-typedef unsigned char BYTE;
-typedef unsigned short WORD;  
+
 
 /******************设置项********************/
 #define Fosc	11059200UL    //晶振频率（HZ）
-#define Machine_Cycle	12UL   //机器周期 （89c52系列==12	   stc11/12/15系列==2）
+#define Machine_Cycle	2UL   //机器周期 （89c52系列==12	   stc11/12/15系列==2）
 #define AT24C02_ADDR  0xa0	//AT24C02地址
 #define PCF8591_ADDR  0x90	//PCF8591地址
 #endif

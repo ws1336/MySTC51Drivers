@@ -80,25 +80,28 @@ void print(u8* str)
 } 
 
 #if EN_PRINTF
+
 /*
-void my_printf(u8* str, ...)
+//此函数为可变参函数原理，弃用
+void my_printf(const u8* str, ...)
 {
 	u8 string[SIZE_OF_PRINTG];
-  void* Arg=0;
+    void* Arg=0;
 	Arg=(u8 *)&str;
-  Arg=(u8 *)Arg+sizeof(str); //堆栈4字节对齐	
+    Arg=(u8 *)Arg+sizeof(str); //堆栈4字节对齐	
 	vsprintf(string,str,Arg);
 	print(string);
 	Arg=0;
-	
+	while(!TI);			//等待发送完成
 } 
 */
-void my_printf(u8* str, ...)
+
+void my_printf(const u8* str, ...)
 {
-  void* Arg=(u8 *)&str+sizeof(str);
+    void* Arg=(u8 *)&str+sizeof(str);
 	TI = 1;
 	vprintf(str,Arg);
 	Arg=0;
-	
+	while(!TI);			//等待发送完成
 }
 #endif
