@@ -12,8 +12,9 @@
 			TMOD |= 0x20;		//设定定时器1为8位自动重装方式
 			TL1 = 0xDC;			//设定定时初值
 			TH1 = 0xDC;			//设定定时器重装值
-			ET1 = 0;				//禁止定时器1中断
-			TR1 = 1;				//启动定时器1
+			ET1 = 0;			//禁止定时器1中断
+			TR1 = 1;			//启动定时器1
+            TI = 1;             //此处置1是为了使用printf函数与putc函数
 		}
 
 	#elif Machine_Cycle==12UL    //89c52
@@ -27,8 +28,9 @@
 			TMOD |= 0x20;		//设定定时器1为8位自动重装方式
 			TL1 = 0xFD;			//设定定时初值
 			TH1 = 0xFD;			//设定定时器重装值
-			ET1 = 0;				//禁止定时器1中断
-			TR1 = 1;				//启动定时器1
+			ET1 = 0;			//禁止定时器1中断
+			TR1 = 1;			//启动定时器1
+            TI = 1;             //此处置1是为了使用printf函数与putc函数
 		}
 	#endif
 #elif Fosc==12000000     //如果定义了晶振频率12000000
@@ -41,10 +43,11 @@
 			AUXR &= 0xFE;		//串口1选择定时器1为波特率发生器
 			TMOD &= 0x0F;		//清除定时器1模式位
 			TMOD |= 0x20;		//设定定时器1为8位自动重装方式
-			TL1 = 0xD9;		//设定定时初值
-			TH1 = 0xD9;		//设定定时器重装值
-			ET1 = 0;		//禁止定时器1中断
-			TR1 = 1;		//启动定时器1
+			TL1 = 0xD9;		    //设定定时初值
+			TH1 = 0xD9;		    //设定定时器重装值
+			ET1 = 0;		    //禁止定时器1中断
+			TR1 = 1;		    //启动定时器1
+            TI = 1;             //此处置1是为了使用printf函数与putc函数
 		}
 
 	#elif Machine_Cycle==12UL    //89c52
@@ -56,20 +59,23 @@
 			AUXR &= 0xFE;		//串口1选择定时器1为波特率发生器
 			TMOD &= 0x0F;		//清除定时器1模式位
 			TMOD |= 0x20;		//设定定时器1为8位自动重装方式
-			TL1 = 0xF3;		//设定定时初值
-			TH1 = 0xF3;		//设定定时器重装值
-			ET1 = 0;		//禁止定时器1中断
-			TR1 = 1;		//启动定时器1
+			TL1 = 0xF3;		    //设定定时初值
+			TH1 = 0xF3;		    //设定定时器重装值
+			ET1 = 0;		    //禁止定时器1中断
+			TR1 = 1;		    //启动定时器1
+            TI = 1;             //此处置1是为了使用printf函数与putc函数
 		}
 	#endif
 #endif
+        
 void putc(u8 ch)
 {
-	TI = 0;
+    while(!TI);			//等待上一帧发送完成，比等待本帧发送完成效率更高
+    TI = 0;
 	SBUF = ch;	        
-	while(!TI);			//等待发送完成
-	TI = 0;	
 }
+
+//此函数只用来发送字符串，必须有'\0'结束符，否则死循环
 void print(u8* str)
 {
 	while(*str!='\0')
@@ -80,7 +86,6 @@ void print(u8* str)
 } 
 
 #if EN_PRINTF
-
 /*
 //此函数为可变参函数原理，弃用
 void my_printf(const u8* str, ...)
@@ -96,6 +101,7 @@ void my_printf(const u8* str, ...)
 } 
 */
 
+/*
 void my_printf(const u8* str, ...)
 {
     void* Arg=(u8 *)&str+sizeof(str);
@@ -104,4 +110,5 @@ void my_printf(const u8* str, ...)
 	Arg=0;
 	while(!TI);			//等待发送完成
 }
+*/
 #endif

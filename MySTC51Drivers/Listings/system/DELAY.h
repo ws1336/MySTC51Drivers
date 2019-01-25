@@ -1,7 +1,7 @@
 #ifndef __DELAY_H__
 #define __DELAY_H__
-#include"define.h"
-#include<intrins.h>
+#include "define.h"
+#include <intrins.h>
 
 /****注意：请修改define.h中关于晶振频率和机器周期的定义****/
 /****注意：请修改define.h中关于晶振频率和机器周期的定义****/

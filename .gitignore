@@ -51,6 +51,7 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
-#Uesr files
-Test.uvgui.Administrator
-Test.uvopt
+# Uesr files
+*.Administrator
+*.uvopt
+MySTC51Drivers/Objects/*

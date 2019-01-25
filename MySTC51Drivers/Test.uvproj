@@ -309,7 +309,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>.\Listings;.\Listings\petit_fatfs</IncludePath>
+              <IncludePath>.\Listings\system;.\Listings\drivers;.\Listings\methods;.\Listings\petit_fatfs</IncludePath>
             </VariousControls>
           </C51>
           <Ax51>
@@ -359,22 +359,32 @@
       </TargetOption>
       <Groups>
         <Group>
-          <GroupName>Source Group 1</GroupName>
+          <GroupName>Main</GroupName>
           <Files>
-            <File>
-              <FileName>DELAY.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Listings\DELAY.c</FilePath>
-            </File>
             <File>
               <FileName>test.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\test.c</FilePath>
             </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>System</GroupName>
+          <Files>
+            <File>
+              <FileName>DELAY.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Listings\system\DELAY.c</FilePath>
+            </File>
             <File>
               <FileName>Uart.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Listings\Uart.c</FilePath>
+              <FilePath>.\Listings\system\Uart.c</FilePath>
+            </File>
+            <File>
+              <FileName>define.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Listings\system\define.h</FilePath>
             </File>
           </Files>
         </Group>

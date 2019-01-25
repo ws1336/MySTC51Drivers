@@ -1,4 +1,5 @@
 #include "DELAY.h"
+
 void delay_ms(uint ms)  
 {	
 	 unsigned char i, j;
@@ -12,8 +13,9 @@ void delay_ms(uint ms)
 		} while (--i);	
 	}while(--ms);
 }
+
 #if Machine_Cycle==12UL
-void delay5us()		//@12.000MHz
+void delay5us()		    //@12.000MHz
 {
 	_nop_();
 }
@@ -26,7 +28,7 @@ void delay10us()		//@12.000MHz
 	while (--i);
 }
 #elif Machine_Cycle==2UL
-void delay5us()		//@12.000MHz
+void delay5us()		    //@12.000MHz
 {
 	unsigned char i;
 
